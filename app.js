@@ -20,7 +20,9 @@ new Vue({
             this.autoAttack();
         },
         firstAid: function() {
-            
+            var dmg = Math.ceil(Math.random() * 30 );
+            this.playerHP += dmg;
+            this.autoAttack();
         },
         surrender: function() {
             
