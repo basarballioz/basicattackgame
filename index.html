@@ -4,7 +4,6 @@
 <head>
     <title>Basic Attack</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,7 +20,7 @@
                 </div>
             </div>
             <div class="small-6 columns">
-                <h1 class="text-center">OPFOR</h1>
+                <h1 class="text-center">Aslan</h1>
                 <div class="healthbar">
                     <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
 
@@ -30,13 +29,13 @@
             </div>
         </section>
 
-        <section class="row controls">
+        <section class="row controls" v-if="!newGame">
             <div class="small-12 columns">
                 <button id="start-game" @click="startGame">NEW GAME</button>
             </div>
         </section>
-        
-        <section class="row controls">
+
+        <section class="row controls" v-if="newGame">
             <div class="small-12 columns">
                 <button id="attack" @click="attack">ATTACK</button>
                 <button id="special-attack" @click="finisherAttack">FINISHER ATTACK</button>
@@ -44,7 +43,8 @@
                 <button id="give-up" @click="surrender">SURRENDER</button>
             </div>
         </section>
-        <section class="row log">
+
+        <section class="row log" v-if="newGame">
             <div class="small-12 columns">
                 <ul>
                     <li>
@@ -54,6 +54,8 @@
             </div>
         </section>
     </div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
