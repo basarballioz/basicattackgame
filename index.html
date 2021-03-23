@@ -4,6 +4,7 @@
 <head>
     <title>Basic Attack</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,7 +13,7 @@
     <div id="app">
         <section class="row">
             <div class="small-6 columns">
-                <h1 class="text-center">YOU</h1>
+                <h1 class="text-center">Civciv</h1>
                 <div class="healthbar">
                     <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
 
@@ -28,17 +29,19 @@
                 </div>
             </div>
         </section>
+
         <section class="row controls">
             <div class="small-12 columns">
-                <button id="start-game">NEW GAME</button>
+                <button id="start-game" @click="startGame">NEW GAME</button>
             </div>
         </section>
+        
         <section class="row controls">
             <div class="small-12 columns">
-                <button id="attack">ATTACK</button>
-                <button id="special-attack">FINISHER ATTACK</button>
-                <button id="heal">FIRST AID</button>
-                <button id="give-up">SURRENDER</button>
+                <button id="attack" @click="attack">ATTACK</button>
+                <button id="special-attack" @click="finisherAttack">FINISHER ATTACK</button>
+                <button id="heal" @click="firstAid">FIRST AID</button>
+                <button id="give-up" @click="surrender">SURRENDER</button>
             </div>
         </section>
         <section class="row log">
