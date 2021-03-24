@@ -14,7 +14,8 @@
             <div class="small-6 columns">
                 <h1 class="text-center">Civciv</h1>
                 <div class="healthbar">
-                    <div :style="{width: playerHP + '%'}" class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
+                    <div :style="{width: playerHP + '%'}" class="healthbar text-center"
+                        style="background-color: green; margin: 0; color: white;">
                         {{ playerHP }}%
                     </div>
                 </div>
@@ -22,19 +23,20 @@
             <div class="small-6 columns">
                 <h1 class="text-center">Aslan</h1>
                 <div class="healthbar">
-                    <div :style="{width: opforHP + '%'}" class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
+                    <div :style="{width: opforHP + '%'}" class="healthbar text-center"
+                        style="background-color: green; margin: 0; color: white;">
                         {{ opforHP }}%
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section class="row controls" v-if="!newGame">
             <div class="small-12 columns">
                 <button id="start-game" @click="startGame">NEW GAME</button>
             </div>
         </section>
-        
+
         <section class="row controls" v-if="newGame">
             <div class="small-12 columns">
                 <button id="attack" @click="attack">ATTACK</button>
@@ -48,7 +50,7 @@
             <div class="small-12 columns">
                 <ul>
                     <li>
-
+                        <li v-for="logs in matchLog"> {{ logs }}</li>
                     </li>
                 </ul>
             </div>
