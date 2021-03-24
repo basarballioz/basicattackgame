@@ -13,8 +13,8 @@
 <body>
     <div id="app">
         <section class="row">
-            <div class="small-6 columns">
-                <h2 class="text-center">Civciv</h2>
+            <div class="small-6 columns opponent">
+                <h2 class="text-center">CHICK</h2>
                 <img v-if="allyAlive" src="img/ally.png" class="image1">
                 <img v-if="!allyAlive" src="img/chick.png" class="image1">
                 <div class="healthbar">
@@ -24,8 +24,8 @@
                     </div>
                 </div>
             </div>
-            <div class="small-6 columns">
-                <h2 class="text-center">Aslan</h2>
+            <div class="small-6 columns opponent">
+                <h2 class="text-center">LION</h2>
                 <img v-if="enemyAlive" src="img/enemy.png" class="image2">
                 <img v-if="!enemyAlive" src="img/enemydead.png" class="image2">
                 <div class="healthbar">
@@ -55,7 +55,7 @@
             <div class="small-12 columns">
                 <ul>
                     <li>
-                        <li v-for="logs in matchLog":class="{ 'playerTurn': logs.turn == 'Ally', 'opforTurn': logs.turn == 'Enemy' }"> {{logs.text}}</li>
+                        <li v-for="logs in matchLog":class="{ 'playerTurn': logs.turn == 'Ally', 'opforTurn': logs.turn == 'Enemy' }"> {{ logs.text }} </li>
                     </li>
                 </ul>
             </div>

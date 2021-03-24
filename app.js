@@ -11,12 +11,11 @@ new Vue({
     methods: {
         startGame: function () {
             this.newGame = true;
-            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " + dmg + " Damage " })
         },
         attack: function () {
             var dmg = Math.ceil(Math.random() * 15);
             this.opforHP -= dmg;
-            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " + dmg + " Damage" })
+            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " +  dmg  + " Damage" })
             this.autoAttack();
         },
         finisherAttack: function () {
@@ -61,7 +60,7 @@ new Vue({
             if (hp <= 0) {
                 this.playerHP = 0
                 this.allyAlive = false;
-                if (confirm("Oyunu kaybettin tekrar oynamak ister misin")) {
+                if (confirm("Game is over. Winner: Chick. Wanna play again ?")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
                     this.matchLog = [];
@@ -77,7 +76,7 @@ new Vue({
             if (hp <= 0) {
                 this.opforHP = 0;
                 this.enemyAlive = false;
-                if (confirm("Oyunu kazandın tekrar oynamak ister misin")) {
+                if (confirm("Game is over. Winner: Lion. Wanna play again ?")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
                     this.matchLog = [];
