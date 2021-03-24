@@ -13,18 +13,18 @@
         <section class="row">
             <div class="small-6 columns">
                 <h1 class="text-center">Civciv</h1>
+                <img src="img/ally.png" class="image">
                 <div class="healthbar">
-                    <div :style="{width: playerHP + '%'}" class="healthbar text-center"
-                        style="background-color: green; margin: 0; color: white;">
+                    <div :style="{width: playerHP + '%'}" class="healthbar">
                         {{ playerHP }}%
                     </div>
                 </div>
             </div>
             <div class="small-6 columns">
                 <h1 class="text-center">Aslan</h1>
+                <img src="img/lion.png" class="image">
                 <div class="healthbar">
-                    <div :style="{width: opforHP + '%'}" class="healthbar text-center"
-                        style="background-color: green; margin: 0; color: white;">
+                    <div :style="{width: opforHP + '%'}" class="healthbar">
                         {{ opforHP }}%
                     </div>
                 </div>
@@ -50,7 +50,9 @@
             <div class="small-12 columns">
                 <ul>
                     <li>
-                        <li v-for="logs in matchLog"> {{ logs }}</li>
+                    <li v-for="logs in matchLog"
+                        :class="{ 'playerTurn': logs.turn == 'Ally', 'opforTurn': logs.turn == 'Enemy' }"> {{
+                        logs.text }}</li>
                     </li>
                 </ul>
             </div>

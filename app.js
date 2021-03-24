@@ -7,71 +7,74 @@ new Vue({
         matchLog: []
     },
     methods: {
-        startGame: function() {
+        startGame: function () {
             this.newGame = true;
+            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " + dmg + " Damage" })
         },
-        attack: function() {
+        attack: function () {
             var dmg = Math.ceil(Math.random() * 15);
             this.opforHP -= dmg;
-            this.enableLogging({ turn: "Ally", text: "Ally Attacked  (" + dmg + ")"})
+            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " + dmg + " Damage" })
             this.autoAttack();
         },
-        finisherAttack: function() {
+        finisherAttack: function () {
             var dmg = Math.ceil(Math.random() * 20);
             this.opforHP -= dmg;
-            this.enableLogging({ turn: "Ally", text: "Ally atağı (" + dmg + ")"})
+            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " + dmg + " Damage" })
             this.finisherAutoAttack();
         },
-        firstAid: function() {
+        firstAid: function () {
             var healPlayer = Math.ceil(Math.random() * 20);
             var healopFor = Math.ceil(Math.random() * 5);
             this.playerHP += healPlayer;
             this.opforHP += healopFor;
             this.attackFirstAid();
-            this.enableLogging({ turn: "Ally", text: "Healed: (" + healPlayer + ")"})
-            this.enableLogging({ turn: "Enemy", text: "Healed: (" + healopFor + ")"})
+            this.enableLogging({ turn: "Ally", text: "Ally Healed: " + healPlayer + " HP" })
+            this.enableLogging({ turn: "Enemy", text: "Enemy Healed: " + healopFor + " HP" })
         },
-        surrender: function() {
+        surrender: function () {
             this.playerHP = 0;
         },
-        autoAttack: function() {
+        autoAttack: function () {
             var dmg = Math.ceil(Math.random() * 10);
             this.playerHP -= dmg;
-            this.enableLogging({ turn: "Enemy", text: "Enemy attacked: (" + dmg + ")"})
+            this.enableLogging({ turn: "Enemy", text: "Enemy attacked: " + dmg + " Damage" })
         },
-        attackFirstAid: function() {
+        attackFirstAid: function () {
             var dmg = Math.ceil(Math.random() * 10);
             this.playerHP -= dmg;
-            this.enableLogging({ turn: "Enemy", text: "Enemy attacked while healing: (" + dmg + ")"})
+            this.enableLogging({ turn: "Enemy", text: "Enemy attacked while healing: " + dmg + " Damage" })
         },
-        finisherAutoAttack: function() {
+        finisherAutoAttack: function () {
             var dmg = Math.ceil(Math.random() * 30);
             this.playerHP -= dmg;
-            this.enableLogging({ turn: "Enemy", text: "Enemy attacked: (" + dmg + ")"})
+            this.enableLogging({ turn: "Enemy", text: "Enemy attacked: " + dmg + " Damage" })
         },
-        enableLogging: function(log) {
-            this.matchLog.push(log);
+        enableLogging: function (log) {
+            this.matchLog.push(log)
         }
     },
     watch: {
-        playerHP: function(hp) {
+        playerHP: function (hp) {
             if (hp <= 0) {
                 this.playerHP = 0;
                 if (confirm("Oyunu kaybettin tekrar oynamak ister misin")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
+                    this.matchLog = [];
                 }
             }
             else if (hp >= 100) {
                 this.playerHP = 100;
             }
         },
-        opforHP: function(hp) {
+        opforHP: function (hp) {
             if (hp <= 0) {
                 this.opforHP = 0;
                 if (confirm("Oyunu kazandın tekrar oynamak ister misin")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
+                    this.matchLog = [];
                 }
             }
             else if (hp >= 100) {
@@ -80,5 +83,5 @@ new Vue({
         }
 
     }
-    
+
 })
