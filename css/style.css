@@ -4,11 +4,21 @@
 
 .text-center {
     text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    border-color: red green blue orange;
+    border-style: solid;
+    border-width: 5px;
 }
 
-.image {
+.image1 {
     width: 350px;
     height: 350px;
+}
+
+.image2 {
+    width: 500px;
+    height: 350px;
+    padding-left: 40px;
 }
 
 .healthbar {
@@ -16,7 +26,6 @@
     height: 30px;
     background-color: #eee;
     margin: 10px 0px 0px 0px;
-    background-color: rgb(58, 130, 212);
     margin: 0;
     text-align: center;
     font-weight: bold;

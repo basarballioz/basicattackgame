@@ -6,25 +6,27 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
         <section class="row">
             <div class="small-6 columns">
-                <h1 class="text-center">Civciv</h1>
-                <img src="img/ally.png" class="image">
+                <h2 class="text-center">Civciv</h2>
+                <img src="img/ally.png" class="image1">
                 <div class="healthbar">
-                    <div :style="{width: playerHP + '%'}" class="healthbar">
+                    <div :style="{width: playerHP + '%'}" class="healthbar" style="background-color: rgb(58, 130, 212);">
                         {{ playerHP }}%
                     </div>
                 </div>
             </div>
             <div class="small-6 columns">
-                <h1 class="text-center">Aslan</h1>
-                <img src="img/lion.png" class="image">
+                <h2 class="text-center">Aslan</h2>
+                <img src="img/lion.png" class="image2">
                 <div class="healthbar">
-                    <div :style="{width: opforHP + '%'}" class="healthbar">
+                    <div :style="{width: opforHP + '%'}" class="healthbar" style="background-color: rgb(58, 130, 212);">
                         {{ opforHP }}%
                     </div>
                 </div>
