@@ -15,16 +15,19 @@
         <section class="row">
             <div class="small-6 columns">
                 <h2 class="text-center">Civciv</h2>
-                <img src="img/ally.png" class="image1">
+                <img v-if="allyAlive" src="img/ally.png" class="image1">
+                <img v-if="!allyAlive" src="img/chick.png" class="image1">
                 <div class="healthbar">
-                    <div :style="{width: playerHP + '%'}" class="healthbar" style="background-color: rgb(58, 130, 212);">
+                    <div :style="{width: playerHP + '%'}" class="healthbar"
+                        style="background-color: rgb(58, 130, 212);">
                         {{ playerHP }}%
                     </div>
                 </div>
             </div>
             <div class="small-6 columns">
                 <h2 class="text-center">Aslan</h2>
-                <img src="img/lion.png" class="image2">
+                <img v-if="enemyAlive" src="img/enemy.png" class="image2">
+                <img v-if="!enemyAlive" src="img/enemydead.png" class="image2">
                 <div class="healthbar">
                     <div :style="{width: opforHP + '%'}" class="healthbar" style="background-color: rgb(58, 130, 212);">
                         {{ opforHP }}%
@@ -52,9 +55,7 @@
             <div class="small-12 columns">
                 <ul>
                     <li>
-                    <li v-for="logs in matchLog"
-                        :class="{ 'playerTurn': logs.turn == 'Ally', 'opforTurn': logs.turn == 'Enemy' }"> {{
-                        logs.text }}</li>
+                        <li v-for="logs in matchLog":class="{ 'playerTurn': logs.turn == 'Ally', 'opforTurn': logs.turn == 'Enemy' }"> {{logs.text}}</li>
                     </li>
                 </ul>
             </div>

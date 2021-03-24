@@ -4,12 +4,14 @@ new Vue({
         playerHP: 100,
         opforHP: 100,
         newGame: false,
+        allyAlive: true,
+        enemyAlive: true,
         matchLog: []
     },
     methods: {
         startGame: function () {
             this.newGame = true;
-            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " + dmg + " Damage" })
+            this.enableLogging({ turn: "Ally", text: "Ally Attacked: " + dmg + " Damage " })
         },
         attack: function () {
             var dmg = Math.ceil(Math.random() * 15);
@@ -57,11 +59,14 @@ new Vue({
     watch: {
         playerHP: function (hp) {
             if (hp <= 0) {
-                this.playerHP = 0;
+                this.playerHP = 0
+                this.allyAlive = false;
                 if (confirm("Oyunu kaybettin tekrar oynamak ister misin")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
                     this.matchLog = [];
+                    this.allyAlive = true;
+                    this.enemyAlive = true;
                 }
             }
             else if (hp >= 100) {
@@ -71,10 +76,13 @@ new Vue({
         opforHP: function (hp) {
             if (hp <= 0) {
                 this.opforHP = 0;
+                this.enemyAlive = false;
                 if (confirm("Oyunu kazandın tekrar oynamak ister misin")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
                     this.matchLog = [];
+                    this.allyAlive = true;
+                    this.enemyAlive = true;
                 }
             }
             else if (hp >= 100) {
