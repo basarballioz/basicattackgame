@@ -60,7 +60,7 @@ new Vue({
             if (hp <= 0) {
                 this.playerHP = 0
                 this.allyAlive = false;
-                if (confirm("Game is over. Winner: Chick. Wanna play again ?")) {
+                if (confirm("Game is over. Winner: Lion. Wanna play again ?")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
                     this.matchLog = [];
@@ -76,7 +76,7 @@ new Vue({
             if (hp <= 0) {
                 this.opforHP = 0;
                 this.enemyAlive = false;
-                if (confirm("Game is over. Winner: Lion. Wanna play again ?")) {
+                if (confirm("Game is over. Winner: Chick. Wanna play again ?")) {
                     this.playerHP = 100;
                     this.opforHP = 100;
                     this.matchLog = [];
